@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NativeToEnglish Pro — Matrabhed</title>
+<meta name="description" content="NativeToEnglish Pro: turn Bangla, Banglish or rough English into clear, professional English. USD 4.99 a month or USD 39 a year.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header><div class="wrap">
+  <a class="brand" href="/">Matrabhed</a>
+  <nav><a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refunds.html">Refunds</a><a href="mailto:abdulhady.aariyan@gmail.com">Contact</a></nav>
+</div></header>
+<main><div class="wrap">
+  <p class="notice" id="test-notice" hidden>Test mode: this page uses Paddle Sandbox. No real money is charged.</p>
+  <h1>NativeToEnglish Pro</h1>
+  <p class="lede">Write in Bangla, Banglish, or rough English and get clear, professional English in the field you are already typing in. Works in Chrome and on Android.</p>
+
+  <h2>Pricing</h2>
+  <div class="plans">
+    <div class="plan">
+      <span class="name">Monthly</span>
+      <span class="price">USD 4.99<small> / month</small></span>
+      <button type="button" data-price="pri_01m4bsyjnnyd6fw9xef9w8xtw2">Subscribe monthly</button>
+    </div>
+    <div class="plan">
+      <span class="name">Yearly</span>
+      <span class="price">USD 39<small> / year</small></span>
+      <span class="what">Two months free compared with monthly.</span>
+      <button type="button" data-price="pri_01m4bsyk50dtczgm8mama8kq4s">Subscribe yearly</button>
+    </div>
+  </div>
+  <p class="what">Prices exclude tax where it applies; the final amount, in your currency where possible, is shown at checkout. Cancel any time. Refunds within 14 days, no questions asked — see the <a href="/refunds.html">Refund Policy</a>.</p>
+
+  <h2>What Pro includes</h2>
+  <ul>
+    <li>Rewrites in Native, English, Formal and Academic styles.</li>
+    <li>A short explanation of each change, in English or Bangla.</li>
+    <li>The Chrome extension and the Android app on one subscription.</li>
+  </ul>
+</div></main>
+<footer><div class="wrap">
+  <p>Matrabhed is operated by Abdul Hady Aariyan, a sole trader based in Dhaka, Bangladesh. Payments are processed by Paddle.com, our merchant of record.</p>
+  <p>Contact: <a href="mailto:abdulhady.aariyan@gmail.com">abdulhady.aariyan@gmail.com</a></p>
+  <p><a href="/terms.html">Terms of Service</a> · <a href="/privacy.html">Privacy Policy</a> · <a href="/refunds.html">Refund Policy</a></p>
+</div></footer>
+<script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+<script>
+  // Local testing uses Paddle Sandbox. On the public site, checkout stays closed
+  // until the live client-side token is added at launch.
+  var sandbox = ["localhost", "127.0.0.1"].indexOf(location.hostname) !== -1;
+  var buttons = document.querySelectorAll("[data-price]");
+  if (sandbox) {
+    document.getElementById("test-notice").hidden = false;
+    Paddle.Environment.set("sandbox");
+    Paddle.Initialize({ token: "test_76a1ae825db5ebfb1cc1cc8ac07" });
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        Paddle.Checkout.open({ items: [{ priceId: btn.dataset.price, quantity: 1 }] });
+      });
+    });
+  } else {
+    buttons.forEach(function (btn) {
+      btn.disabled = true;
+      btn.textContent = "Available soon";
+    });
+  }
+</script>
+</body>
+</html>

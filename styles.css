@@ -28,3 +28,12 @@ footer .wrap{padding-block:26px 40px;color:var(--muted);font-size:14px}
 footer a{color:var(--muted)}
 footer p{color:var(--muted);margin-bottom:8px}
 @media(max-width:520px){h1{font-size:26px}main .wrap{padding-block:40px 32px}}
+.notice{background:var(--soft);border:1px dashed var(--line);border-radius:var(--radius);padding:8px 12px;font-size:14px;color:var(--muted)}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:8px 0 14px}
+.plan{border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;background:var(--soft);display:flex;flex-direction:column;gap:6px}
+.plan .name{font-weight:650}
+.plan .price{font-size:24px;font-weight:700;letter-spacing:-.3px}
+.plan .price small{font-size:14px;font-weight:400;color:var(--muted)}
+.what{color:var(--muted);font-size:15px}
+.plan button{margin-top:auto;font:inherit;font-weight:600;padding:10px 14px;border:0;border-radius:8px;background:var(--accent);color:#fff;cursor:pointer}
+.plan button:disabled{opacity:.55;cursor:default}
