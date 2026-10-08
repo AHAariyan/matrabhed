@@ -22,13 +22,13 @@
     <div class="plan">
       <span class="name">Monthly</span>
       <span class="price">USD 4.99<small> / month</small></span>
-      <button type="button" data-price="pri_01m4bsyjnnyd6fw9xef9w8xtw2">Subscribe monthly</button>
+      <button type="button" data-plan="monthly">Subscribe monthly</button>
     </div>
     <div class="plan">
       <span class="name">Yearly</span>
       <span class="price">USD 39<small> / year</small></span>
       <span class="what">Two months free compared with monthly.</span>
-      <button type="button" data-price="pri_01m4bsyk50dtczgm8mama8kq4s">Subscribe yearly</button>
+      <button type="button" data-plan="yearly">Subscribe yearly</button>
     </div>
   </div>
   <p class="what">Prices exclude tax where it applies; the final amount, in your currency where possible, is shown at checkout. Cancel any time. Refunds within 14 days, no questions asked — see the <a href="/refunds.html">Refund Policy</a>.</p>
@@ -47,17 +47,31 @@
 </div></footer>
 <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
 <script>
-  // Local testing uses Paddle Sandbox. On the public site, checkout stays closed
-  // until the live client-side token is added at launch.
+  // Localhost runs Paddle Sandbox for testing. matrabhed.com uses the live account,
+  // but checkout stays closed until LIVE_CHECKOUT_OPEN is set to true at launch.
+  var LIVE_CHECKOUT_OPEN = false;
+  var PADDLE = {
+    sandbox: {
+      token: "test_76a1ae825db5ebfb1cc1cc8ac07",
+      prices: { monthly: "pri_01m4bsyjnnyd6fw9xef9w8xtw2", yearly: "pri_01m4bsyk50dtczgm8mama8kq4s" }
+    },
+    live: {
+      token: "live_c52257c5c06cbeb41153fdb61e0",
+      prices: { monthly: "pri_01m4dzmxmvzy7tfydkv5ehx0k3", yearly: "pri_01m4dzmy1xy5hr4h246hrbmet4" }
+    }
+  };
   var sandbox = ["localhost", "127.0.0.1"].indexOf(location.hostname) !== -1;
-  var buttons = document.querySelectorAll("[data-price]");
-  if (sandbox) {
-    document.getElementById("test-notice").hidden = false;
-    Paddle.Environment.set("sandbox");
-    Paddle.Initialize({ token: "test_76a1ae825db5ebfb1cc1cc8ac07" });
+  var env = sandbox ? PADDLE.sandbox : PADDLE.live;
+  var buttons = document.querySelectorAll("[data-plan]");
+  if (sandbox || LIVE_CHECKOUT_OPEN) {
+    if (sandbox) {
+      document.getElementById("test-notice").hidden = false;
+      Paddle.Environment.set("sandbox");
+    }
+    Paddle.Initialize({ token: env.token });
     buttons.forEach(function (btn) {
       btn.addEventListener("click", function () {
-        Paddle.Checkout.open({ items: [{ priceId: btn.dataset.price, quantity: 1 }] });
+        Paddle.Checkout.open({ items: [{ priceId: env.prices[btn.dataset.plan], quantity: 1 }] });
       });
     });
   } else {
