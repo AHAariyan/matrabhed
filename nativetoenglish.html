@@ -77,6 +77,16 @@
   .btn:disabled { opacity: .55; cursor: not-allowed; transform: none; box-shadow: none; }
   .btn:focus-visible, .toggle button:focus-visible, summary:focus-visible { outline: 3px solid color-mix(in srgb, var(--blue) 40%, transparent); outline-offset: 2px; }
 
+  /* Compact intro: the plans must be visible without scrolling */
+  .intro { padding-block: 28px 18px; }
+  .intro h1, .intro .lede { max-width: 760px; }
+  .intro h1 { margin: 16px 0 10px; font-size: clamp(30px, 4vw, 44px); line-height: 1.08; }
+  .intro .lede { margin: 0; font-size: 17px; }
+  .sub.lead { margin: 0; font-size: 17px; color: var(--ink-soft); }
+  .section-head { align-items: center; }
+  #pricing { padding-top: 22px; }
+  .see { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: center; }
+
   /* Before/after demo */
   .demo { position: relative; margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 22px; box-shadow: var(--shadow); }
   .demo-label { display: block; margin-bottom: 8px; color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
@@ -90,7 +100,8 @@
   .chip.on { background: var(--blue); border-color: var(--blue); color: var(--on-blue); font-weight: 600; }
 
   /* Notices */
-  .notes { display: grid; gap: 10px; }
+  .notes { display: grid; gap: 8px; }
+  .note { font-size: 14px !important; padding: 10px 14px !important; }
   .note { margin: 0; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft); font-size: 15px; }
   .note.test { border-style: dashed; }
   .note.ok { background: var(--mint); border-color: transparent; color: var(--mint-ink); font-weight: 600; }
@@ -141,7 +152,7 @@
   footer a { color: var(--muted); }
 
   @media (max-width: 880px) {
-    .hero { grid-template-columns: 1fr; gap: 32px; padding-block: 28px 40px; }
+    .see { grid-template-columns: 1fr; gap: 20px; }
     .plans { grid-template-columns: 1fr; }
     .plan.pro { order: -1; }
     .trust { grid-template-columns: 1fr; }
@@ -161,38 +172,21 @@
 </header>
 
 <main>
-  <section class="wrap hero">
-    <div>
-      <span class="product"><img src="/assets/nte-mark.png" alt="">NativeToEnglish Pro</span>
-      <h1>Write in your language.<br><em>Send flawless English.</em></h1>
-      <p class="lede">Type in Bangla, Banglish or rough English, right in the box you are already using. NativeToEnglish turns it into clear, professional English for clients, recruiters and colleagues.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="#pricing">See plans</a>
-        <a class="btn btn-ghost" href="https://chromewebstore.google.com/detail/nativetoenglish/hcifnjfjbeemchhjmhghefoonidcnjdm" target="_blank" rel="noopener">Get the free extension</a>
-      </div>
-    </div>
-    <figure class="demo" aria-label="Example rewrite">
-      <span class="demo-label">You type</span>
-      <div class="bubble in" lang="bn-Latn">Sir, ami kal meeting e join korte parbo na. Ektu reschedule kora jabe?</div>
-      <div class="arrow">Improve</div>
-      <span class="demo-label">They read</span>
-      <div class="bubble out">I won't be able to join tomorrow's meeting. Could we reschedule, please?</div>
-      <div class="chips" aria-hidden="true"><span class="chip">Native</span><span class="chip on">English</span><span class="chip">Formal</span><span class="chip">Academic</span></div>
-    </figure>
+  <section class="wrap intro">
+    <span class="product"><img src="/assets/nte-mark.png" alt="">NativeToEnglish Pro</span>
+    <h1>Write in your language. <em>Send flawless English.</em></h1>
+    <p class="lede">Bangla, Banglish or rough English in, clear professional English out, right in the box you are already typing in.</p>
   </section>
 
   <div class="wrap notes">
     <p class="note test" id="test-notice" hidden>Test mode: this page uses Paddle Sandbox. No real money is charged.</p>
-    <p class="note" id="account-note">Already using NativeToEnglish? Open <strong>Upgrade to Pro</strong> from the extension so Pro attaches to your Google account. Buying here directly? Pay with the same email as your Google account.</p>
+    <p class="note" id="account-note">Already a user? Click <strong>Upgrade to Pro</strong> in the extension so Pro lands on your Google account, or pay here with that same email.</p>
     <p class="note ok" id="thanks" hidden>Payment received, thank you. Pro switches on within a minute: open the extension to see it.</p>
   </div>
 
   <section class="wrap section" id="pricing">
     <div class="section-head">
-      <div>
-        <h2>Simple pricing</h2>
-        <p class="sub">Start free. Upgrade when 30 rewrites a day is not enough.</p>
-      </div>
+      <p class="sub lead">Start free. Upgrade when 30 rewrites a day is not enough.</p>
       <div class="toggle" role="group" aria-label="Billing period">
         <button type="button" data-period="monthly" aria-pressed="false">Monthly</button>
         <button type="button" data-period="yearly" aria-pressed="true">Yearly<span class="save">Save 35%</span></button>
@@ -237,6 +231,21 @@
     </div>
   </section>
 
+  <section class="wrap section see">
+    <div>
+      <h2>See it work</h2>
+      <p class="sub">Type the way you think. Click <strong>Improve</strong> beside the text box, pick a style, and keep the result or your own words.</p>
+    </div>
+    <figure class="demo" aria-label="Example rewrite">
+      <span class="demo-label">You type</span>
+      <div class="bubble in" lang="bn-Latn">Sir, ami kal meeting e join korte parbo na. Ektu reschedule kora jabe?</div>
+      <div class="arrow">Improve</div>
+      <span class="demo-label">They read</span>
+      <div class="bubble out">I won't be able to join tomorrow's meeting. Could we reschedule, please?</div>
+      <div class="chips" aria-hidden="true"><span class="chip">Native</span><span class="chip on">English</span><span class="chip">Formal</span><span class="chip">Academic</span></div>
+    </figure>
+  </section>
+
   <section class="wrap section" aria-labelledby="faq-title">
     <h2 id="faq-title">Questions</h2>
     <p class="sub">Anything else? Email <a href="mailto:abdulhady.aariyan@gmail.com">abdulhady.aariyan@gmail.com</a>. Replies usually arrive within two business days.</p>
@@ -253,7 +262,7 @@
 
 <footer>
   <div class="wrap">
-    <p>NativeToEnglish is made by Matrabhed, operated by Abdul Hady Aariyan, a sole trader based in Dhaka, Bangladesh. Payments are processed by Paddle.com, our merchant of record.</p>
+    <p>NativeToEnglish is made by <a href="/">Matrabhed</a>.</p>
     <p><a href="/terms.html">Terms of Service</a> · <a href="/privacy.html">Privacy Policy</a> · <a href="/refunds.html">Refund Policy</a> · <a href="mailto:abdulhady.aariyan@gmail.com">Contact</a></p>
   </div>
 </footer>
