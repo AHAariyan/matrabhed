@@ -31,6 +31,8 @@
       <button type="button" data-plan="yearly">Subscribe yearly</button>
     </div>
   </div>
+  <p class="notice" id="account-note">Buying for NativeToEnglish? Open <strong>Upgrade to Pro</strong> from the extension so Pro attaches to your Google account. Buying here directly? Pay with the same email as your Google account.</p>
+  <p class="notice" id="thanks" hidden>Payment received — thank you. Pro switches on in the extension and the app within a minute; open the extension to see it.</p>
   <p class="what">Prices exclude tax where it applies; the final amount, in your currency where possible, is shown at checkout. Cancel any time. Refunds within 14 days, no questions asked — see the <a href="/refunds.html">Refund Policy</a>.</p>
 
   <h2>What Pro includes</h2>
@@ -63,15 +65,33 @@
   var sandbox = ["localhost", "127.0.0.1"].indexOf(location.hostname) !== -1;
   var env = sandbox ? PADDLE.sandbox : PADDLE.live;
   var buttons = document.querySelectorAll("[data-plan]");
+  // The extension opens this page with ?email=<Google account>. Passing it as
+  // custom data is what lets the webhook attach Pro to that account even if
+  // the buyer pays with a different email.
+  var email = new URLSearchParams(location.search).get("email") || "";
+  if (email) {
+    document.getElementById("account-note").innerHTML = "";
+    document.getElementById("account-note").append("Pro will be added to your NativeToEnglish account: " + email);
+  }
   if (sandbox || LIVE_CHECKOUT_OPEN) {
     if (sandbox) {
       document.getElementById("test-notice").hidden = false;
       Paddle.Environment.set("sandbox");
     }
-    Paddle.Initialize({ token: env.token });
+    Paddle.Initialize({
+      token: env.token,
+      eventCallback: function (event) {
+        if (event.name === "checkout.completed") document.getElementById("thanks").hidden = false;
+      }
+    });
     buttons.forEach(function (btn) {
       btn.addEventListener("click", function () {
-        Paddle.Checkout.open({ items: [{ priceId: env.prices[btn.dataset.plan], quantity: 1 }] });
+        var options = { items: [{ priceId: env.prices[btn.dataset.plan], quantity: 1 }] };
+        if (email) {
+          options.customer = { email: email };
+          options.customData = { nte_email: email };
+        }
+        Paddle.Checkout.open(options);
       });
     });
   } else {
