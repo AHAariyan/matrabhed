@@ -69,6 +69,27 @@
   // custom data is what lets the webhook attach Pro to that account even if
   // the buyer pays with a different email.
   var email = new URLSearchParams(location.search).get("email") || "";
+
+  // Sales-funnel events go to the NativeToEnglish backend, which forwards them
+  // to Amplitude. Local sandbox testing is not counted.
+  var API = "https://nativetoenglish-api-aariyan-c6avfugcawffhndw.southeastasia-01.azurewebsites.net";
+  var visitorId = "";
+  try {
+    visitorId = localStorage.getItem("nte_visitor") || "";
+    if (!visitorId) { visitorId = crypto.randomUUID(); localStorage.setItem("nte_visitor", visitorId); }
+  } catch (e) {}
+  function track(event, plan) {
+    if (sandbox) return;
+    try {
+      fetch(API + "/v1/web-events", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ event: event, plan: plan, email: email, visitorId: visitorId }),
+        keepalive: true
+      }).catch(function () {});
+    } catch (e) {}
+  }
+  track("pricing_viewed");
   if (email) {
     document.getElementById("account-note").innerHTML = "";
     document.getElementById("account-note").append("Pro will be added to your NativeToEnglish account: " + email);
@@ -81,11 +102,15 @@
     Paddle.Initialize({
       token: env.token,
       eventCallback: function (event) {
-        if (event.name === "checkout.completed") document.getElementById("thanks").hidden = false;
+        if (event.name === "checkout.completed") {
+          document.getElementById("thanks").hidden = false;
+          track("checkout_completed");
+        }
       }
     });
     buttons.forEach(function (btn) {
       btn.addEventListener("click", function () {
+        track("checkout_opened", btn.dataset.plan);
         var options = { items: [{ priceId: env.prices[btn.dataset.plan], quantity: 1 }] };
         if (email) {
           options.customer = { email: email };
