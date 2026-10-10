@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NativeToEnglish Pro — Pricing</title>
-<meta name="description" content="NativeToEnglish Pro: 500 rewrites a day from Bangla, Banglish or rough English into clear, professional English. USD 4.99 a month or USD 39 a year. Cancel any time, 14-day refunds.">
+<meta name="description" content="NativeToEnglish Pro: hundreds of rewrites a day from Bangla, Banglish or rough English into clear, professional English. USD 4.99 a month or USD 39 a year. Cancel any time, 14-day refunds.">
 <link rel="icon" href="/assets/nte-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -198,7 +198,7 @@
 
   <section class="wrap section" id="pricing">
     <div class="section-head">
-      <p class="sub lead">Start free. Upgrade when 30 rewrites a day is not enough.</p>
+      <p class="sub lead">Start free. Upgrade when <span data-limit="free">3</span> rewrites a day is not enough.</p>
       <div class="toggle" role="group" aria-label="Billing period">
         <button type="button" data-period="monthly" aria-pressed="false">Monthly</button>
         <button type="button" data-period="yearly" aria-pressed="true">Yearly<span class="save">Save 35%</span></button>
@@ -212,7 +212,7 @@
         <div class="amount"><strong>$0</strong><span>forever</span></div>
         <p class="billed">No card needed.</p>
         <ul>
-          <li><span><strong>30 rewrites</strong> a day</span></li>
+          <li><span><strong><span data-limit="free">3</span> rewrites</strong> a day</span></li>
           <li><span>Native, English, Formal and Academic styles</span></li>
           <li><span>Works in the text box you are already using</span></li>
           <li><span>Chrome extension and Android app</span></li>
@@ -228,7 +228,7 @@
         <p class="billed" id="pro-billed">That is $3.25 a month, billed yearly.</p>
         <ul>
           <li><span>Everything in Free</span></li>
-          <li><span><strong>500 rewrites</strong> a day, more than 16 times Free</span></li>
+          <li><span><strong><span data-limit="pro">500</span> rewrites</strong> a day, instead of <span data-limit="free">3</span></span></li>
           <li><span>Linked to your Google account, so it follows you to any Chrome you sign in on</span></li>
           <li class="soon"><span>Android app support is on the way, at no extra cost</span></li>
         </ul>
@@ -279,7 +279,7 @@
     <p class="sub">Anything else? Email <a href="mailto:abdulhady.aariyan@gmail.com">abdulhady.aariyan@gmail.com</a>. Replies usually arrive within two business days.</p>
     <div class="faq">
       <details><summary>How does Pro reach my account?</summary><p>Click <strong>Upgrade to Pro</strong> in the extension. It opens this page with your Google account attached, and Pro switches on within a minute of paying. If you buy here directly, pay with the same email as the Google account you sign in with.</p></details>
-      <details><summary>What happens when I reach the daily limit?</summary><p>Free stops at 30 rewrites a day and Pro at 500. Limits reset every day at midnight UTC.</p></details>
+      <details><summary>What happens when I reach the daily limit?</summary><p>Free stops at <span data-limit="free">3</span> rewrites a day and Pro at <span data-limit="pro">500</span>. Limits reset every day at midnight UTC.</p></details>
       <details><summary>Can I cancel?</summary><p>Yes, any time, from the link in your receipt email. Pro stays on until the end of the period you paid for, and you are not charged again.</p></details>
       <details><summary>How do refunds work?</summary><p>Ask within 14 days of a payment and you get the full amount back, no questions asked. See the <a href="/refunds.html">Refund Policy</a>.</p></details>
       <details><summary>Why does Paddle appear on my statement?</summary><p>Paddle.com is our authorised reseller and merchant of record. It handles the payment, sales tax and invoices, so you get a proper receipt.</p></details>
@@ -339,6 +339,16 @@
     } catch (e) {}
   }
   track("pricing_viewed");
+
+  // The daily limits come from the same server the extension asks, so the page
+  // can never promise a different number from the product.
+  fetch(API + "/v1/plans").then(function (r) { return r.ok ? r.json() : null; }).then(function (plans) {
+    if (!plans) return;
+    document.querySelectorAll("[data-limit]").forEach(function (el) {
+      var value = el.dataset.limit === "pro" ? plans.proDailyLimit : plans.freeDailyLimit;
+      if (value) el.textContent = String(value);
+    });
+  }).catch(function () {});
   if (email) {
     document.getElementById("account-note").textContent = "Pro will be added to your NativeToEnglish account: " + email;
   }
