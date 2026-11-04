@@ -22,26 +22,7 @@
   --serif: "Newsreader", Georgia, "Times New Roman", serif;
   color-scheme: light;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0c0e12;
-    --surface: #14171d;
-    --sunk: #101318;
-    --ink: #eef0f3;
-    --ink-soft: #c9cfd7;
-    --muted: #a2abb7;
-    --line: #232832;
-    --line-strong: #343b47;
-    --accent: #a59dff;
-    --accent-ink: #0c0e12;
-    --accent-wash: #1d1b3a;
-    --ok: #6fdcb6;
-    --ok-wash: #0f2a22;
-    --grad: linear-gradient(110deg, #8f86ff 0%, #c27bff 38%, #ff7d9c 70%, #ffb766 100%);
-    --shadow: 0 1px 2px rgb(0 0 0 / 40%), 0 22px 48px -28px rgb(0 0 0 / 80%);
-    color-scheme: dark;
-  }
-}
+
 
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 84px; }
