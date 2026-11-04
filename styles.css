@@ -245,3 +245,6 @@ h1, h2, h3 { color: var(--ink); text-wrap: balance; }
   .site-header, .skip { display: none; }
   body { background: #fff; color: #000; }
 }
+#hero-title { font-size: clamp(38px, 5vw, 74px); }
+#hero-title .nw, #hero-title em { white-space: nowrap; }
+#hero-title em { display: inline-block; }
