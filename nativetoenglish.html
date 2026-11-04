@@ -6,6 +6,17 @@
 <title>NativeToEnglish Pro — Pricing</title>
 <meta name="description" content="NativeToEnglish Pro: hundreds of rewrites a day from Bangla, Banglish or rough English into clear, professional English. USD 4.99 a month or USD 39 a year. Cancel any time, 14-day refunds.">
 <link rel="icon" href="/assets/nte-mark.png">
+<link rel="canonical" href="https://matrabhed.com/nativetoenglish.html">
+<meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Matrabhed">
+<meta property="og:url" content="https://matrabhed.com/nativetoenglish.html">
+<meta property="og:title" content="NativeToEnglish Pro: pricing">
+<meta property="og:description" content="NativeToEnglish Pro: hundreds of rewrites a day from Bangla, Banglish or rough English into clear, professional English. USD 4.99 a month or USD 39 a year. Cancel any time, 14-day refunds.">
+<meta property="og:image" content="https://matrabhed.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,500&family=Noto+Sans+Bengali:wght@600&display=swap">
@@ -175,15 +186,46 @@
     .amount strong { font-size: 40px; }
   }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+  /* Studio header and footer, shared with matrabhed.com */
+  .skip { position: absolute; left: 12px; top: -60px; z-index: 50; padding: 10px 14px; border-radius: 10px; background: var(--ink); color: var(--paper); font-weight: 700; text-decoration: none; }
+  .skip:focus { top: 12px; }
+  :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
+  .site-header { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--paper) 84%, transparent); -webkit-backdrop-filter: saturate(1.4) blur(14px); backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid var(--line); }
+  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-weight: 700; font-size: 18px; letter-spacing: -.02em; }
+  .brand svg { width: 28px; height: 28px; flex: none; }
+  .site-nav { display: flex; align-items: center; gap: 4px; }
+  .site-nav a { color: var(--ink-soft); text-decoration: none; font-size: 15px; font-weight: 500; padding: 8px 12px; border-radius: 999px; }
+  .site-nav a:hover { background: var(--sunk); color: var(--ink); }
+  .site-nav a.cta { background: var(--ink); color: var(--paper); font-weight: 600; margin-left: 6px; }
+  @media (max-width: 640px) { .site-nav .wide { display: none; } .site-nav a { padding: 8px 10px; font-size: 14px; } }
+  .site-footer { margin-top: 56px; border-top: 1px solid var(--line); background: var(--surface); }
+  .site-footer .wrap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px 48px; padding-block: 40px 48px; color: var(--muted); font-size: 14.5px; }
+  .site-footer p { margin: 0 0 8px; }
+  .site-footer .brand { margin-bottom: 12px; }
+  .site-footer a { color: var(--ink-soft); }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 6px 22px; list-style: none; margin: 0; padding: 0; align-content: start; justify-content: end; }
+  .foot-links a { text-decoration: none; display: inline-block; padding-block: 4px; }
+  .foot-links a:hover { color: var(--ink); text-decoration: underline; }
+  @media (max-width: 720px) { .site-footer .wrap { grid-template-columns: 1fr; } .foot-links { justify-content: start; } }
 </style>
 </head>
 <body>
-<header class="wrap top">
-  <a class="studio" href="/">Matrabhed</a>
-  <nav aria-label="Studio"><a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refunds.html">Refunds</a><a href="mailto:abdulhady.aariyan@gmail.com">Contact</a></nav>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Matrabhed, home"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b2fd6"/><stop offset=".55" stop-color="#c34aa8"/><stop offset="1" stop-color="#f39a3d"/></linearGradient></defs><rect width="32" height="32" rx="9" fill="url(#bm)"/><path d="M8 22.5V12.2a2.2 2.2 0 0 1 4-1.3l4 5.6 4-5.6a2.2 2.2 0 0 1 4 1.3v10.3" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Matrabhed</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/#apps">Apps</a>
+      <a class="wide" href="/#principles">Principles</a>
+      <a class="wide" href="/#how-we-sell">How we sell</a>
+      <a class="cta" href="/#contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<main>
+<main id="main">
   <section class="wrap intro">
     <span class="product"><img src="/assets/nte-mark.png" alt="">NativeToEnglish Pro</span>
     <h1>Write naturally. <em>Communicate clearly.</em></h1>
@@ -288,10 +330,22 @@
   </section>
 </main>
 
-<footer>
+<footer class="site-footer">
   <div class="wrap">
-    <p>NativeToEnglish is made by <a href="/">Matrabhed</a>.</p>
-    <p><a href="/terms.html">Terms of Service</a> · <a href="/privacy.html">Privacy Policy</a> · <a href="/refunds.html">Refund Policy</a> · <a href="mailto:abdulhady.aariyan@gmail.com">Contact</a></p>
+    <div>
+      <a class="brand" href="/" aria-label="Matrabhed, home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="url(#bm)"/><path d="M8 22.5V12.2a2.2 2.2 0 0 1 4-1.3l4 5.6 4-5.6a2.2 2.2 0 0 1 4 1.3v10.3" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Matrabhed</a>
+      <p>NativeToEnglish is made by <a href="/">Matrabhed</a>, a one-person studio operated by Abdul Hady Aariyan in Dhaka, Bangladesh.</p>
+      <p>Contact: <a href="mailto:abdulhady.aariyan@gmail.com">abdulhady.aariyan@gmail.com</a></p>
+    </div>
+    <nav aria-label="Legal and support">
+      <ul class="foot-links">
+        <li><a href="/terms.html">Terms of Service</a></li>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+        <li><a href="/refunds.html">Refund Policy</a></li>
+        <li><a href="mailto:abdulhady.aariyan@gmail.com">Contact</a></li>
+        <li><a href="/delete-account.html">Delete your account</a></li>
+      </ul>
+    </nav>
   </div>
 </footer>
 

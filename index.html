@@ -3,48 +3,346 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Matrabhed — small software, made carefully</title>
-<meta name="description" content="Matrabhed builds small, useful software: ParentLedger for families sharing a parent's care costs, and NativeToEnglish for writing clear English. Operated by Abdul Hady Aariyan, Dhaka, Bangladesh.">
-<link rel="stylesheet" href="styles.css">
+<title>Matrabhed: a one-person software studio. Small apps, made carefully.</title>
+<meta name="description" content="Matrabhed is a one-person software studio in Dhaka, Bangladesh. Its Android apps (Recover, Shapely, NativeToEnglish, DevDocs, Dev Tools, Statly, Vitanote and Photobe) are published on Google Play under the developer name Agonized Soul.">
+<link rel="canonical" href="https://matrabhed.com/">
+<meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Matrabhed">
+<meta property="og:url" content="https://matrabhed.com/">
+<meta property="og:title" content="Matrabhed: small software, made carefully">
+<meta property="og:description" content="A one-person software studio in Dhaka, Bangladesh. Eight Android apps on Google Play, published as Agonized Soul.">
+<meta property="og:image" content="https://matrabhed.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Matrabhed: small software, made carefully.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&family=Newsreader:ital,opsz,wght@1,6..72,500&display=swap">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Matrabhed",
+  "url": "https://matrabhed.com/",
+  "logo": "https://matrabhed.com/assets/apple-touch-icon.png",
+  "email": "abdulhady.aariyan@gmail.com",
+  "founder": { "@type": "Person", "name": "Abdul Hady Aariyan" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Dhaka", "addressCountry": "BD" },
+  "sameAs": ["https://play.google.com/store/apps/developer?id=Agonized+Soul"]
+}
+</script>
 </head>
 <body>
-<header><div class="wrap">
-  <a class="brand" href="/">Matrabhed</a>
-  <nav><a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refunds.html">Refunds</a><a href="mailto:abdulhady.aariyan@gmail.com">Contact</a></nav>
-</div></header>
-<main><div class="wrap">
-  <h1>Small software, made carefully.</h1>
-  <p class="lede">Matrabhed is a one-person software studio. Each product solves one problem properly, is priced plainly, and is supported by the person who wrote it.</p>
+<a class="skip" href="#main">Skip to content</a>
 
-  <h2>Products</h2>
-  <ul class="products">
-    <li>
-      <span class="name">ParentLedger</span>
-      <span class="what">A shared ledger for adult siblings splitting an aging parent's care costs. Expenses, who paid, who owes whom, and a weekly statement everyone receives.</span>
-      <span class="status">In development — <a href="https://parentledger.app">parentledger.app</a></span>
-    </li>
-    <li>
-      <span class="name">NativeToEnglish</span>
-      <span class="what">Write in Bangla, Banglish, or rough English and get clear, professional English in the field you are already typing in. Available for the web and Android.</span>
-      <span class="status">Pro from USD 4.99/month — <a href="/nativetoenglish.html">pricing</a></span>
-    </li>
-    <li>
-      <span class="name">Developer Tools &amp; DevDocs</span>
-      <span class="what">Offline developer utilities for Android: JWT, JSON and regex tools, and an offline API documentation browser.</span>
-      <span class="status">On Google Play</span>
-    </li>
-  </ul>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Matrabhed, home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b2fd6"/><stop offset=".55" stop-color="#c34aa8"/><stop offset="1" stop-color="#f39a3d"/></linearGradient></defs><rect width="32" height="32" rx="9" fill="url(#bm)"/><path d="M8 22.5V12.2a2.2 2.2 0 0 1 4-1.3l4 5.6 4-5.6a2.2 2.2 0 0 1 4 1.3v10.3" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Matrabhed
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#apps">Apps</a>
+      <a class="wide" href="#principles">Principles</a>
+      <a class="wide" href="#how-we-sell">How we sell</a>
+      <a class="cta" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <h2>How we sell</h2>
-  <p>Payments are processed by our authorised reseller, Paddle.com, which acts as the merchant of record for web purchases. Purchases made inside an Android app are processed by Google Play. Prices are shown on each product's page before you buy, in your own currency where possible, with any tax shown at checkout.</p>
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">A one-person software studio</p>
+        <h1 class="display" id="hero-title">Small software, <em>made carefully.</em></h1>
+        <p class="lede">Matrabhed makes focused apps that each solve one problem properly, are priced plainly, and are supported by the person who wrote them.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#apps">See the apps
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+        <p class="publisher"><span class="dot" aria-hidden="true"></span><span>Our apps are published on Google Play under the developer name <strong>Agonized Soul</strong>.</span></p>
+      </div>
 
-  <h2>Support</h2>
-  <p>Questions, refunds, bug reports and feature requests all go to the same place: <a href="mailto:abdulhady.aariyan@gmail.com">abdulhady.aariyan@gmail.com</a>. Replies usually arrive within two business days.</p>
-</div></main>
-<footer><div class="wrap">
-  <p>Matrabhed is operated by Abdul Hady Aariyan, a sole trader based in Dhaka, Bangladesh.</p>
-  <p>Contact: <a href="mailto:abdulhady.aariyan@gmail.com">abdulhady.aariyan@gmail.com</a></p>
-  <p><a href="/terms.html">Terms of Service</a> · <a href="/privacy.html">Privacy Policy</a> · <a href="/refunds.html">Refund Policy</a></p>
-</div></footer>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 520 520">
+          <defs>
+            <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#8b3fd9" stop-opacity=".30"/>
+              <stop offset=".6" stop-color="#e2557a" stop-opacity=".10"/>
+              <stop offset="1" stop-color="#f39a3d" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b2fd6"/><stop offset="1" stop-color="#8b3fd9"/></linearGradient>
+            <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2557a"/><stop offset="1" stop-color="#f39a3d"/></linearGradient>
+            <linearGradient id="g3" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#0e9f7a"/><stop offset="1" stop-color="#6fdcb6"/></linearGradient>
+            <linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6c548"/><stop offset="1" stop-color="#f39a3d"/></linearGradient>
+            <linearGradient id="g5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5aa9ff"/><stop offset="1" stop-color="#3b2fd6"/></linearGradient>
+            <linearGradient id="core" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b2fd6"/><stop offset=".55" stop-color="#c34aa8"/><stop offset="1" stop-color="#f39a3d"/></linearGradient>
+            <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#121519" flood-opacity=".18"/></filter>
+          </defs>
+          <circle cx="260" cy="260" r="250" fill="url(#glow)"/>
+          <g class="spin" fill="none" stroke="currentColor" style="color: var(--line-strong)">
+            <circle cx="260" cy="260" r="200" stroke-width="1.2" stroke-dasharray="2 9"/>
+            <circle cx="260" cy="260" r="138" stroke-width="1.2"/>
+            <circle cx="460" cy="260" r="5" fill="#e2557a" stroke="none"/>
+            <circle cx="122" cy="260" r="4" fill="#3b2fd6" stroke="none"/>
+          </g>
+
+          <!-- Eight tiles, one for each app on the shelf. Abstract shapes, not the real icons. -->
+          <g filter="url(#soft)">
+            <g class="float"><rect x="214" y="30" width="92" height="92" rx="26" fill="url(#g1)"/><circle cx="260" cy="76" r="18" fill="none" stroke="#fff" stroke-width="6" opacity=".9"/></g>
+            <g class="float b"><rect x="376" y="104" width="76" height="76" rx="22" fill="url(#g2)"/><path d="M396 150l14-18 12 12 12-16" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".92"/></g>
+            <g class="float c"><rect x="398" y="292" width="70" height="70" rx="20" fill="url(#g3)"/><path d="M418 327h30M433 312v30" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".92"/></g>
+            <g class="float"><rect x="296" y="404" width="84" height="84" rx="24" fill="url(#g4)"/><rect x="316" y="424" width="44" height="44" rx="10" fill="none" stroke="#fff" stroke-width="5" opacity=".9"/></g>
+            <g class="float b"><rect x="128" y="400" width="74" height="74" rx="22" fill="url(#g5)"/><path d="M150 437l10 10 20-22" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".92"/></g>
+            <g class="float c"><rect x="48" y="282" width="68" height="68" rx="20" fill="url(#g2)"/><path d="M68 316h28" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M68 304h18M68 328h22" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".6"/></g>
+            <g class="float"><rect x="56" y="118" width="80" height="80" rx="23" fill="url(#g3)"/><path d="M82 172l14-34 14 34" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".92"/></g>
+            <g class="float b"><rect x="168" y="150" width="58" height="58" rx="17" fill="url(#g4)"/><circle cx="197" cy="179" r="9" fill="#fff" opacity=".92"/></g>
+          </g>
+
+          <!-- The studio at the centre -->
+          <g filter="url(#soft)">
+            <rect x="196" y="216" width="128" height="128" rx="36" fill="url(#core)"/>
+            <path d="M228 304v-42a8 8 0 0 1 14.5-4.7L260 282l17.5-24.7A8 8 0 0 1 292 262v42" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="facts" aria-label="Studio at a glance">
+    <div class="wrap">
+      <ul>
+        <li><b>8 apps</b><span>live on Google Play</span></li>
+        <li><b>1 person</b><span>design, code and support</span></li>
+        <li><b>Dhaka</b><span>Bangladesh</span></li>
+        <li><b>14 days</b><span>refunds on web purchases</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="apps" aria-labelledby="apps-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">The apps</p>
+          <h2 class="h-section" id="apps-title">Everything we make, <em>in one place.</em></h2>
+        </div>
+        <p class="side">Every app below is live on Google Play, published by <strong>Agonized Soul</strong>, the developer name of this studio.</p>
+      </div>
+
+      <ul class="apps">
+        <li class="app">
+          <div class="app-top">
+            <img class="app-icon" src="/assets/apps/recover.webp" width="60" height="60" alt="" loading="lazy" decoding="async">
+            <div><h3>Recover</h3><p class="kind">Android · Tools</p></div>
+          </div>
+          <p class="what">See and recover deleted messages, from the moment you install. Private, no ads.</p>
+          <div class="links">
+            <a class="pill play" href="https://play.google.com/store/apps/details?id=com.nothinglost.app" rel="noopener" aria-label="Get Recover on Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.5v15l13-7.5z" fill="currentColor"/></svg>Get it on Google Play</a>
+            <a class="pill" href="https://recover.matrabhed.com" rel="noopener" aria-label="Recover website">Website</a>
+          </div>
+        </li>
+
+        <li class="app">
+          <div class="app-top">
+            <img class="app-icon" src="/assets/apps/shapely.webp" width="60" height="60" alt="" loading="lazy" decoding="async">
+            <div><h3>Shapely</h3><p class="kind">Android · Home screen widgets</p></div>
+          </div>
+          <p class="what">A glass widget pack with Material Expressive widgets, pastel colours and photo frames.</p>
+          <div class="links">
+            <a class="pill play" href="https://play.google.com/store/apps/details?id=com.shapely.widgets" rel="noopener" aria-label="Get Shapely on Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.5v15l13-7.5z" fill="currentColor"/></svg>Get it on Google Play</a>
+            <a class="pill" href="https://shapely.matrabhed.com" rel="noopener" aria-label="Shapely website">Website</a>
+          </div>
+        </li>
+
+        <li class="app featured">
+          <div class="app-top">
+            <img class="app-icon" src="/assets/apps/nativetoenglish.webp" width="60" height="60" alt="" loading="lazy" decoding="async">
+            <div><h3>NativeToEnglish</h3><p class="kind">Android · Chrome extension</p></div>
+          </div>
+          <p class="what">Turns Banglish, Hinglish, Roman Urdu, Franco Arabic or Taglish into clear English.</p>
+          <div class="links">
+            <a class="pill play" href="https://play.google.com/store/apps/details?id=com.nativetoenglish.mobile" rel="noopener" aria-label="Get NativeToEnglish on Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.5v15l13-7.5z" fill="currentColor"/></svg>Get it on Google Play</a>
+            <a class="pill" href="https://chromewebstore.google.com/detail/nativetoenglish/hcifnjfjbeemchhjmhghefoonidcnjdm" rel="noopener" aria-label="NativeToEnglish in the Chrome Web Store">Chrome</a>
+            <a class="pill" href="https://nativetoenglish.landing.matrabhed.com" rel="noopener" aria-label="NativeToEnglish website">Website</a>
+            <a class="pill" href="/nativetoenglish.html" aria-label="NativeToEnglish Pro pricing">Pricing</a>
+          </div>
+        </li>
+
+        <li class="app">
+          <div class="app-top">
+            <img class="app-icon" src="/assets/apps/devdocs.webp" width="60" height="60" alt="" loading="lazy" decoding="async">
+            <div><h3>DevDocs</h3><p class="kind">Android · Offline developer docs</p></div>
+          </div>
+          <p class="what">Full-text search across 200+ developer documentation sets. Download once, then search and bookmark offline.</p>
+          <div class="links">
+            <a class="pill play" href="https://play.google.com/store/apps/details?id=com.devdocs.app" rel="noopener" aria-label="Get DevDocs on Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.5v15l13-7.5z" fill="currentColor"/></svg>Get it on Google Play</a>
+            <a class="pill" href="https://devdocs.landing.matrabhed.com" rel="noopener" aria-label="DevDocs website">Website</a>
+          </div>
+        </li>
+
+        <li class="app">
+          <div class="app-top">
+            <img class="app-icon" src="/assets/apps/devtools.webp" width="60" height="60" alt="" loading="lazy" decoding="async">
+            <div><h3>Dev Tools</h3><p class="kind">Android · Developer utilities</p></div>
+          </div>
+          <p class="what">JWT, JSON, Regex, Base64, Hash and URL tools. 100% offline, no ads, no sign-up.</p>
+          <div class="links">
+            <a class="pill play" href="https://play.google.com/store/apps/details?id=com.devtools.app" rel="noopener" aria-label="Get Dev Tools on Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.5v15l13-7.5z" fill="currentColor"/></svg>Get it on Google Play</a>
+          </div>
+        </li>
+
+        <li class="app">
+          <div class="app-top">
+            <img class="app-icon" src="/assets/apps/statly.webp" width="60" height="60" alt="" loading="lazy" decoding="async">
+            <div><h3>Statly</h3><p class="kind">Android · Health and fitness</p></div>
+          </div>
+          <p class="what">Step counter and pedometer, no watch needed. Sleep, streaks and widgets. No ads.</p>
+          <div class="links">
+            <a class="pill play" href="https://play.google.com/store/apps/details?id=com.statly.app" rel="noopener" aria-label="Get Statly on Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.5v15l13-7.5z" fill="currentColor"/></svg>Get it on Google Play</a>
+          </div>
+        </li>
+
+        <li class="app">
+          <div class="app-top">
+            <img class="app-icon" src="/assets/apps/vitanote.webp" width="60" height="60" alt="" loading="lazy" decoding="async">
+            <div><h3>Vitanote</h3><p class="kind">Android · Health</p></div>
+          </div>
+          <p class="what">A blood pressure tracker for doctor visits, with pill reminders and intermittent fasting.</p>
+          <div class="links">
+            <a class="pill play" href="https://play.google.com/store/apps/details?id=com.healthapps.app" rel="noopener" aria-label="Get Vitanote on Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.5v15l13-7.5z" fill="currentColor"/></svg>Get it on Google Play</a>
+          </div>
+        </li>
+
+        <li class="app">
+          <div class="app-top">
+            <img class="app-icon" src="/assets/apps/photobe.webp" width="60" height="60" alt="" loading="lazy" decoding="async">
+            <div><h3>Photobe</h3><p class="kind">Android · Photo editing</p></div>
+          </div>
+          <p class="what">Background remover, photo blur and retouch. A full photo editor that works offline, with no ads.</p>
+          <div class="links">
+            <a class="pill play" href="https://play.google.com/store/apps/details?id=com.aariyan.photoeditor" rel="noopener" aria-label="Get Photobe on Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.5v15l13-7.5z" fill="currentColor"/></svg>Get it on Google Play</a>
+          </div>
+        </li>
+      </ul>
+      <p class="apps-note">See every app in one list on our <a href="https://play.google.com/store/apps/developer?id=Agonized+Soul" rel="noopener">Google Play developer page</a>.</p>
+    </div>
+  </section>
+
+  <section class="section" id="principles" aria-labelledby="principles-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">How we work</p>
+          <h2 class="h-section" id="principles-title">Four rules we <em>don't bend.</em></h2>
+        </div>
+      </div>
+      <ul class="principles">
+        <li class="principle">
+          <svg class="glyph" viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="pg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b2fd6"/><stop offset="1" stop-color="#8b3fd9"/></linearGradient></defs><rect width="48" height="48" rx="14" fill="url(#pg1)"/><path d="M24 12l10 4v7c0 6.5-4.3 11.2-10 13-5.7-1.8-10-6.5-10-13v-7z" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round"/><path d="M19.5 24l3.2 3.2 6-6.2" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Privacy first</h3>
+          <p>We collect only what a feature needs to work. We do not sell personal information, and we do not share it for advertising.</p>
+        </li>
+        <li class="principle">
+          <svg class="glyph" viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="pg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0e9f7a"/><stop offset="1" stop-color="#3fc79a"/></linearGradient></defs><rect width="48" height="48" rx="14" fill="url(#pg2)"/><rect x="16" y="10" width="16" height="28" rx="4" fill="none" stroke="#fff" stroke-width="2.6"/><path d="M21.5 33h5" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><circle cx="24" cy="22" r="3.2" fill="#fff"/></svg>
+          <h3>On your device</h3>
+          <p>Where an app can work on your phone alone, it does. Dev Tools, DevDocs and Photobe work offline. When a feature needs a server, such as a NativeToEnglish rewrite, we say so and send only what it needs.</p>
+        </li>
+        <li class="principle">
+          <svg class="glyph" viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="pg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2557a"/><stop offset="1" stop-color="#f39a3d"/></linearGradient></defs><rect width="48" height="48" rx="14" fill="url(#pg3)"/><path d="M13 24.5V14h10.5L35 25.5 25.5 35z" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round"/><circle cx="19" cy="20" r="2.4" fill="#fff"/></svg>
+          <h3>Honest pricing</h3>
+          <p>The price is shown before you buy, with any tax at checkout. Cancel any time. Web purchases can be refunded in full within 14 days, no questions asked.</p>
+        </li>
+        <li class="principle">
+          <svg class="glyph" viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="pg4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5aa9ff"/><stop offset="1" stop-color="#3b2fd6"/></linearGradient></defs><rect width="48" height="48" rx="14" fill="url(#pg4)"/><path d="M12 16a4 4 0 0 1 4-4h16a4 4 0 0 1 4 4v11a4 4 0 0 1-4 4h-9l-6 5v-5h-1a4 4 0 0 1-4-4z" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round"/><path d="M18 21.5h12" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg>
+          <h3>A real person answers</h3>
+          <p>Every app is supported by the person who wrote it. Questions, bugs and refund requests reach him directly, and replies usually arrive within two business days.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="how-we-sell" aria-labelledby="sell-title">
+    <div class="wrap">
+      <div class="panel">
+        <div>
+          <p class="eyebrow">How we sell</p>
+          <h2 class="h-section" id="sell-title">Clear about <em>who takes your payment.</em></h2>
+        </div>
+        <div>
+          <p>Payments are processed by our authorised reseller, <strong>Paddle.com</strong>, which acts as the merchant of record for web purchases. Purchases made inside an Android app are processed by <strong>Google Play</strong>. Prices are shown on each product's page before you buy, in your own currency where possible, with any tax shown at checkout.</p>
+          <ul class="ways">
+            <li>
+              <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 10h18M7 15h4"/></svg></span>
+              <div><h3>On our websites</h3><p>Paddle.com Market Ltd is the merchant of record. It handles the payment, sales tax and receipt, and its name appears on your statement.</p></div>
+            </li>
+            <li>
+              <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18h2"/></svg></span>
+              <div><h3>Inside Android apps</h3><p>Google Play processes the purchase under Google's terms, and you manage subscriptions in the Play Store.</p></div>
+            </li>
+          </ul>
+          <p style="margin-top:18px">Read the <a href="/terms.html">Terms of Service</a> and the <a href="/refunds.html">Refund Policy</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="wrap about">
+      <div>
+        <p class="eyebrow">About the studio</p>
+        <h2 class="h-section" id="about-title">One maker, <em>accountable for all of it.</em></h2>
+        <p style="margin-top:20px">Matrabhed is a one-person software studio. The same person designs each app, writes the code, publishes it and answers your email, so there is never a support queue between you and the person who can fix things.</p>
+        <p>Our Android apps are published on Google Play under the developer name <strong>Agonized Soul</strong>, the Play developer account of this studio.</p>
+      </div>
+      <dl>
+        <div><dt>Studio</dt><dd>Matrabhed</dd></div>
+        <div><dt>Operated by</dt><dd>Abdul Hady Aariyan, sole trader</dd></div>
+        <div><dt>Based in</dt><dd>Dhaka, Bangladesh</dd></div>
+        <div><dt>Google Play developer</dt><dd><a href="https://play.google.com/store/apps/developer?id=Agonized+Soul" rel="noopener">Agonized Soul</a></dd></div>
+        <div><dt>Web payments</dt><dd>Paddle.com, merchant of record</dd></div>
+        <div><dt>Contact</dt><dd><a href="mailto:abdulhady.aariyan@gmail.com">abdulhady.aariyan@gmail.com</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="contact">
+        <p class="eyebrow">Support and contact</p>
+        <h2 class="h-section" id="contact-title">Write to the person who built it.</h2>
+        <p>Questions, refunds, bug reports and feature requests all go to the same place. Replies usually arrive within two business days.</p>
+        <a class="mail" href="mailto:abdulhady.aariyan@gmail.com">abdulhady.aariyan@gmail.com</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="/" aria-label="Matrabhed, home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="url(#bm)"/><path d="M8 22.5V12.2a2.2 2.2 0 0 1 4-1.3l4 5.6 4-5.6a2.2 2.2 0 0 1 4 1.3v10.3" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Matrabhed</a>
+      <p>Matrabhed is operated by Abdul Hady Aariyan, a sole trader based in Dhaka, Bangladesh. Apps are published on Google Play as Agonized Soul.</p>
+      <p>Contact: <a href="mailto:abdulhady.aariyan@gmail.com">abdulhady.aariyan@gmail.com</a></p>
+    </div>
+    <nav aria-label="Legal and support">
+      <ul class="foot-links">
+        <li><a href="/terms.html">Terms of Service</a></li>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+        <li><a href="/refunds.html">Refund Policy</a></li>
+        <li><a href="mailto:abdulhady.aariyan@gmail.com">Contact</a></li>
+        <li><a href="/delete-account.html">Delete your account</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
 </body>
 </html>
