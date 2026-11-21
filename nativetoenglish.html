@@ -227,15 +227,15 @@
   <div class="wrap notes">
     <p class="note test" id="test-notice" hidden>Test mode: this page uses Paddle Sandbox. No real money is charged.</p>
     <p class="note" id="account-note">Already a user? Click <strong>Upgrade to Pro</strong> in the extension so Pro lands on your Google account, or pay here with that same email.</p>
-    <p class="note ok" id="thanks" hidden>Payment received, thank you. Pro switches on within a minute: open the extension to see it.</p>
+    <p class="note ok" id="thanks" hidden>Payment received. Close this tab to go back to your writing: Pro switches on within a minute.</p>
   </div>
 
   <section class="wrap section" id="pricing">
     <div class="section-head">
       <p class="sub lead">Start free. Upgrade when <span data-limit="free">3</span> rewrites a day is not enough.</p>
       <div class="toggle" role="group" aria-label="Billing period">
-        <button type="button" data-period="monthly" aria-pressed="false">Monthly</button>
-        <button type="button" data-period="yearly" aria-pressed="true">Yearly<span class="save">Save 35%</span></button>
+        <button type="button" data-period="monthly" aria-pressed="true">Monthly</button>
+        <button type="button" data-period="yearly" aria-pressed="false">Yearly<span class="save">Save 35%</span></button>
       </div>
     </div>
 
@@ -258,15 +258,15 @@
         <span class="badge">RECOMMENDED</span>
         <h3>Pro</h3>
         <p class="for">For people who write in English all day.</p>
-        <div class="amount"><strong id="pro-price">$39</strong><span id="pro-unit">/ year</span></div>
-        <p class="billed" id="pro-billed">That is $3.25 a month, billed yearly.</p>
+        <div class="amount"><strong id="pro-price">$4.99</strong><span id="pro-unit">/ month</span></div>
+        <p class="billed" id="pro-billed">Billed monthly. Cancel any time.</p>
         <ul>
           <li><span>Everything in Free</span></li>
           <li><span><strong><span data-limit="pro">500</span> rewrites</strong> a day, instead of <span data-limit="free">3</span></span></li>
           <li><span>Linked to your Google account, so it follows you to any Chrome you sign in on</span></li>
           <li class="soon"><span>Android app support is on the way, at no extra cost</span></li>
         </ul>
-        <button type="button" class="btn btn-primary" id="pro-buy" data-plan="yearly">Get Pro yearly</button>
+        <button type="button" class="btn btn-primary" id="pro-buy" data-plan="monthly">Get Pro monthly</button>
       </article>
     </div>
 
@@ -360,10 +360,27 @@
   var env = sandbox ? PADDLE.sandbox : PADDLE.live;
   var buttons = document.querySelectorAll("[data-plan]");
   var checkoutOpen = sandbox || LIVE_CHECKOUT_OPEN;
-  // The extension opens this page with ?email=<Google account>. Passing it as
-  // custom data is what lets the webhook attach Pro to that account even if
-  // the buyer pays with a different email.
-  var email = new URLSearchParams(location.search).get("email") || "";
+  // 0.6: the extension never puts the email in the URL. It answers a postMessage for the
+  // random handoff id instead (only on this page, once). ?email= is read one last time for
+  // 0.5.x extensions that are not updated yet, then removed from the address bar.
+  // Passing the email as custom data lets the webhook attach Pro to that account
+  // even if the buyer pays with a different email.
+  var params = new URLSearchParams(location.search);
+  var handoff = params.get("handoff") || "";
+  var email = params.get("email") || "";
+  if (location.search) history.replaceState(null, "", location.pathname + location.hash);
+  function askExtension() {
+    if (handoff && !email) window.postMessage({ type: "nte-account-request", handoff: handoff }, location.origin);
+  }
+  window.addEventListener("message", function (e) {
+    if (e.source !== window || e.origin !== location.origin || !e.data) return;
+    if (e.data.type === "nte-extension-ready") askExtension();
+    if (e.data.type === "nte-account" && e.data.handoff === handoff && typeof e.data.email === "string") {
+      email = e.data.email;
+      document.getElementById("account-note").textContent = "Pro will be added to the Google account you use in the extension.";
+    }
+  });
+  askExtension();
 
   // Sales-funnel events go to the NativeToEnglish backend, which forwards them
   // to Amplitude. Local sandbox testing is not counted.
@@ -396,11 +413,11 @@
     });
   }).catch(function () {});
   if (email) {
-    document.getElementById("account-note").textContent = "Pro will be added to your NativeToEnglish account: " + email;
+    document.getElementById("account-note").textContent = "Pro will be added to the Google account you use in the extension.";
   }
 
-  // Monthly / yearly switch. Yearly is the default: cheaper for the buyer, and
-  // Paddle's fixed fee takes a far smaller share of it.
+  // Monthly / yearly switch. Monthly is the default (0.6): a small first step
+  // converts better than a $39 commitment; yearly stays one tap away.
   var PERIODS = {
     monthly: { price: "$4.99", unit: "/ month", billed: "Billed monthly. Cancel any time.", label: "Get Pro monthly" },
     yearly: { price: "$39", unit: "/ year", billed: "That is $3.25 a month, billed yearly.", label: "Get Pro yearly" }
